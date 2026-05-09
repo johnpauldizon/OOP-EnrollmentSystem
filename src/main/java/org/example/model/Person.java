@@ -1,4 +1,4 @@
-package Enrollment;
+package org.example.model;
 
 public class Person {
     private String personName;
@@ -12,19 +12,19 @@ public class Person {
         this.personID = personID;
     }
 
-    public String getPersonID() {
-        return personID;
-    }
-
     public String getPersonName() {
         return personName;
     }
 
-    public void setPersonID(String personID) {
-        this.personID = personID;
-    }
-
     public void setPersonName(String personName) {
         this.personName = personName;
+    }
+
+    public String getPersonID() {
+        return personID;
+    }
+
+    public void setPersonID(String personID) {
+        this.personID = personID;
     }
 }

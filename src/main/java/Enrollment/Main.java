@@ -1,40 +1,41 @@
 package Enrollment;
 
+import org.example.model.Student;
+import org.example.service.StudentRegistration;
+import org.example.service.CourseRegistration;
+import org.example.service.TuitionFeePayment;
+import org.example.model.Course;
+
 public class Main {
+
     public static void main(String[] args) {
-        Student student = new Student();
-        student.setName("John Doe");
-        student.setStudentID(123);
-        student.setProgram("Information Technology");
 
-        Course course = new Course();
-        course.setCourseID(1);
-        course.setCourseName("Integrative Programming");
-        course.setProgram("Information Technology");
+        StudentRegistration studentRegistration = new StudentRegistration();
+        CourseRegistration courseRegistration = new CourseRegistration();
+        TuitionFeePayment tuitionFeePayment = new TuitionFeePayment();
 
-        Instructor instructor = new Instructor();
-        instructor.setPersonName("Prof. Santos");
-        instructor.setPersonID("INS001");
-        instructor.setCourse("Integrative Programming");
+// Add students
+        studentRegistration.addStudent(new Student("Dante", "2023", "IT"));
+        studentRegistration.addStudent(new Student("Vergil", "2024", "CS"));
 
-        System.out.println("=== ENROLLMENT SYSTEM ===");
-        System.out.println();
+// Add courses
+        courseRegistration.addCourse(new Course("01", "Interprog", "IT"));
+        courseRegistration.addCourse(new Course("02", "ITSyde", "CS"));
 
-        System.out.println("Student Information");
-        System.out.println("ID: " + student.getStudentID());
-        System.out.println("Name: " + student.getName());
-        System.out.println("Program: " + student.getProgram());
-        System.out.println();
+// Display only once
+        System.out.println("=== STUDENTS ===");
+        studentRegistration.displayAll();
 
-        System.out.println("Course Information");
-        System.out.println("Course ID: " + course.getCourseID());
-        System.out.println("Course Name: " + course.getCourseName());
-        System.out.println("Program: " + course.getProgram());
-        System.out.println();
+        System.out.println("\n=== COURSES ===");
+        courseRegistration.displayAll();
 
-        System.out.println("Instructor Information");
-        System.out.println("ID: " + instructor.getPersonID());
-        System.out.println("Name: " + instructor.getPersonName());
-        System.out.println("Course: " + instructor.getCourse());
+// Tuition
+        double fee = tuitionFeePayment.calculateTuition(2);
+        tuitionFeePayment.makePayment(10000);
+
+        System.out.println("\n=== TUITION ===");
+        System.out.println("Total Fee: " + fee);
+        System.out.println("Balance: " + tuitionFeePayment.getBalance());
+        System.out.println("Fully Paid: " + tuitionFeePayment.isFullyPaid());
     }
 }
