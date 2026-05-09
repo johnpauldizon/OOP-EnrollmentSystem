@@ -1,21 +1,17 @@
-package org.Abstraction;
+package Enrollment;
 
-public abstract class Person {
-
-    // Fields
-    private String personID;
+public class Person {
     private String personName;
-
+    private String personID;
 
     public Person() {
     }
 
-    public Person(String personID, String personName) {
-        this.personID = personID;
+    public Person(String personName, String personID) {
         this.personName = personName;
+        this.personID = personID;
     }
 
-    // Getters
     public String getPersonID() {
         return personID;
     }
@@ -24,7 +20,6 @@ public abstract class Person {
         return personName;
     }
 
-    // Setters
     public void setPersonID(String personID) {
         this.personID = personID;
     }
@@ -32,7 +27,4 @@ public abstract class Person {
     public void setPersonName(String personName) {
         this.personName = personName;
     }
-
-    // Abstract method
-    public abstract void mainTask();
 }
